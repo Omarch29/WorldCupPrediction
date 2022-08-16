@@ -9,23 +9,25 @@ datasource db {
 
 model Matches {
   id                            Int       @id @default(autoincrement())
-  teamA_id                      Int?
-  teamB_id                      Int?
+  teamA_id                      String
+  teamB_id                      String
   time                          DateTime  @db.Timestamp(6)
-  TeamA_Score                   Int
-  TeamB_Score                   Int
+  TeamA_Score                   Int?
+  TeamB_Score                   Int?
   TeamA_penalties               Int?
   TeamB_penalties               Int?
   playoffs                      Boolean
-  Teams_Matches_teamA_idToTeams Teams?    @relation("Matches_teamA_idToTeams", fields: [teamA_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  Teams_Matches_teamB_idToTeams Teams?    @relation("Matches_teamB_idToTeams", fields: [teamB_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  stage                         String
+  group                         String?
+  Teams_Matches_teamA_idToTeams Teams     @relation("Matches_teamA_idToTeams", fields: [teamA_id], references: [flag], onDelete: NoAction, onUpdate: NoAction)
+  Teams_Matches_teamB_idToTeams Teams     @relation("Matches_teamB_idToTeams", fields: [teamB_id], references: [flag], onDelete: NoAction, onUpdate: NoAction)
   Guesses                       Guesses[]
 }
 
 model Teams {
   id                              Int       @id @default(autoincrement())
-  name                            String?   @unique
-  flag                            String?
+  name                            String    @unique
+  flag                            String    @unique
   Matches_Matches_teamA_idToTeams Matches[] @relation("Matches_teamA_idToTeams")
   Matches_Matches_teamB_idToTeams Matches[] @relation("Matches_teamB_idToTeams")
 }
