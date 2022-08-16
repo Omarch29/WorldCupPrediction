@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateMatchDto } from './dto/create-match.dto';
 import { UpdateMatchDto } from './dto/update-match.dto';
 import { PrismaService } from './Prisma.service';
+import * as moment from 'moment';
 
 @Injectable()
 export class MatchService {
@@ -17,8 +18,16 @@ export class MatchService {
       { teamB_id: { equals: team } },
     ]} : {};
 
+    let dateQuery = {};
+    if (date) {
+      const momentDate = moment(date);
+      const startDate = momentDate.startOf('day').toDate();
+      const endDate = momentDate.endOf('day').toDate();
+      dateQuery = { time: { gte: startDate, lte: endDate } };
+    }
+
     const and = {AND: [
-      date ? { date: { equals: date } } : {}, 
+      date ?  dateQuery : {}, 
       stage ? { stage: { equals: stage } } : {}, 
       group ? { group: { equals: group } } : {}
     ]};
