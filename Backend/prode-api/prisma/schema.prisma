@@ -1,12 +1,51 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Matches {
+  id                            Int       @id @default(autoincrement())
+  teamA_id                      Int?
+  teamB_id                      Int?
+  time                          DateTime  @db.Timestamp(6)
+  TeamA_Score                   Int
+  TeamB_Score                   Int
+  TeamA_penalties               Int?
+  TeamB_penalties               Int?
+  playoffs                      Boolean
+  Teams_Matches_teamA_idToTeams Teams?    @relation("Matches_teamA_idToTeams", fields: [teamA_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Teams_Matches_teamB_idToTeams Teams?    @relation("Matches_teamB_idToTeams", fields: [teamB_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Guesses                       Guesses[]
+}
+
+model Teams {
+  id                              Int       @id @default(autoincrement())
+  name                            String?   @unique
+  flag                            String?
+  Matches_Matches_teamA_idToTeams Matches[] @relation("Matches_teamA_idToTeams")
+  Matches_Matches_teamB_idToTeams Matches[] @relation("Matches_teamB_idToTeams")
+}
+
+model Guesses {
+  id           Int      @id @default(autoincrement())
+  user_id      Int
+  match_id     Int
+  Team_winner  String
+  Team_a_score Int
+  Team_b_score Int
+  time         DateTime @db.Timestamp(6)
+  Matches      Matches  @relation(fields: [match_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "match_guess")
+  Users        Users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_guesses")
+}
+
+model Users {
+  id       Int       @id @default(autoincrement())
+  name     String?
+  username String?   @unique
+  password String?
+  Guesses  Guesses[]
 }
