@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TeamsController } from './Controllers/teams.controller';
+import { TeamController } from './Controllers/team.controller';
 import { PrismaService } from './Services/Prisma.service';
-import { TeamsService } from './Services/teams.service';
+import { TeamService } from './Services/team.service';
+import { MatchController } from './Controllers/match.controller';
+import { MatchService } from './Services/match.service';
 
 @Module({
   imports: [],
-  controllers: [AppController, TeamsController],
-  providers: [AppService, TeamsService, PrismaService],
+  controllers: [AppController, TeamController, MatchController],
+  providers: [AppService, TeamService, PrismaService, MatchService],
 })
 export class AppModule {}

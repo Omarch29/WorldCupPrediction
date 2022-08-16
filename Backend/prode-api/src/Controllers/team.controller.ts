@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { TeamsService } from '../Services/teams.service';
+import { TeamService } from '../Services/team.service';
 import { CreateTeamDto } from '../Services/dto/create-team.dto';
 import { UpdateTeamDto } from '../Services/dto/update-team.dto';
 
-@Controller('teams')
-export class TeamsController {
-  constructor(private readonly teamsService: TeamsService) {}
+@Controller('team')
+export class TeamController {
+  constructor(private readonly teamsService: TeamService) {}
 
   @Post()
   create(@Body() createTeamDto: CreateTeamDto) {

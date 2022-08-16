@@ -4,7 +4,7 @@ import { UpdateTeamDto } from './dto/update-team.dto';
 import { PrismaService } from './Prisma.service';
 
 @Injectable()
-export class TeamsService {
+export class TeamService {
   constructor(private readonly prismaService: PrismaService) {}
 
   create(createTeamDto: CreateTeamDto) {
