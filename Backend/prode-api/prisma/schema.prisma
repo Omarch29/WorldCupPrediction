@@ -36,9 +36,9 @@ model Guesses {
   id           Int      @id @default(autoincrement())
   user_id      Int
   match_id     Int
-  Team_winner  String
-  Team_a_score Int
-  Team_b_score Int
+  team_winner  String?
+  team_a_score Int
+  team_b_score Int
   time         DateTime @db.Timestamp(6)
   Matches      Matches  @relation(fields: [match_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "match_guess")
   Users        Users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_guesses")

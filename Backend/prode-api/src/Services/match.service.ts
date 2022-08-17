@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateMatchDto } from './dto/create-match.dto';
 import { UpdateMatchDto } from './dto/update-match.dto';
 import { PrismaService } from './Prisma.service';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Injectable()
 export class MatchService {

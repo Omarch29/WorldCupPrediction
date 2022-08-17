@@ -6,10 +6,20 @@ import { PrismaService } from './Services/Prisma.service';
 import { TeamService } from './Services/team.service';
 import { MatchController } from './Controllers/match.controller';
 import { MatchService } from './Services/match.service';
+import { AuthService } from './Services/auth.service';
 
 @Module({
   imports: [],
-  controllers: [AppController, TeamController, MatchController],
-  providers: [AppService, TeamService, PrismaService, MatchService],
+  controllers: 
+    [AppController,
+    TeamController,
+    MatchController,
+    AuthService],
+  providers: 
+    [AppService,
+    TeamService, 
+    PrismaService, 
+    MatchService,
+    AuthService],
 })
 export class AppModule {}
