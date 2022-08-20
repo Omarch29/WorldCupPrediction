@@ -10,8 +10,8 @@ export class GuessController {
   @Post('')
   async createGuess(@Body() newGuess: createGuessDto) {
     const guess = this.guessService.CreateGuess(newGuess);
-    if (!guess || guess === null)
-      return new BadRequestException('Invalid guess');
+    if (!guess) 
+      throw new BadRequestException('Invalid guess');
     
     return guess;
   }

@@ -1,6 +1,5 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { createGuessDto } from './createGuess.dto';
-
-export class UpdateGuessDto extends PartialType(createGuessDto) {
-    id: number;
+export class UpdateGuessDto {
+    team_a_score: number;
+    team_b_score: number;
+    team_winner: 'A' | 'B' | 'X';
 }

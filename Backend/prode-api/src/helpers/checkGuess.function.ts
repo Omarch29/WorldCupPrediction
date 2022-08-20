@@ -10,7 +10,7 @@ export const isGuessValid = (guess: createGuessDto | UpdateGuessDto, match: Matc
     if (match.playoffs && guess.team_winner == 'X') 
     return false;
 
-    const winner = guess.team_a_score === guess.team_b_score ? guess.team_a_score > guess.team_b_score ? 'A' : 'X' : 'B';
+    const winner = guess.team_a_score === guess.team_b_score ? 'X' : guess.team_a_score > guess.team_b_score ? 'A' : 'B';
     if (winner != guess.team_winner)
         return false             
 

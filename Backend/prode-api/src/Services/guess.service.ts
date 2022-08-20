@@ -14,7 +14,7 @@ export class GuessService {
     async CreateGuess(guess: createGuessDto): Promise<Guess| null> {
         const match = await this.getMatch(guess.match_id);
         if (!isGuessValid(guess, match)) 
-            return null;
+        return null;
 
         var newGuess = {
             team_a_score: guess.team_a_score,
@@ -32,7 +32,13 @@ export class GuessService {
     }
 
     async UpdateGuess(id: number, updateMatchDto: UpdateGuessDto) {
-        const match = await this.getMatch(updateMatchDto.match_id);
+        const guess = await this.prismaService.guess.findFirst({
+            where: {
+                id
+            }
+        });
+
+        const match = await this.getMatch(guess.match_id);
         if (!isGuessValid(updateMatchDto, match)) 
         return null;
 
