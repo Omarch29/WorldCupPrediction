@@ -7,47 +7,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Matches {
-  id                            Int       @id @default(autoincrement())
-  teamA_id                      String
-  teamB_id                      String
-  time                          DateTime  @db.Timestamp(6)
-  TeamA_Score                   Int?
-  TeamB_Score                   Int?
-  TeamA_penalties               Int?
-  TeamB_penalties               Int?
-  playoffs                      Boolean
-  stage                         String
-  group                         String?
-  Teams_Matches_teamA_idToTeams Teams     @relation("Matches_teamA_idToTeams", fields: [teamA_id], references: [flag], onDelete: NoAction, onUpdate: NoAction)
-  Teams_Matches_teamB_idToTeams Teams     @relation("Matches_teamB_idToTeams", fields: [teamB_id], references: [flag], onDelete: NoAction, onUpdate: NoAction)
-  Guesses                       Guesses[]
+model Match {
+  id                        Int      @id(map: "Matches_pkey") @default(autoincrement())
+  teamA_id                  String
+  teamB_id                  String
+  time                      DateTime @db.Timestamp(6)
+  team_a_score              Int?
+  team_b_score              Int?
+  playoffs                  Boolean
+  stage                     String
+  group                     String?
+  winner                    String?
+  Team_Match_teamA_idToTeam Team     @relation("Match_teamA_idToTeam", fields: [teamA_id], references: [flag], onDelete: NoAction, onUpdate: NoAction, map: "Matches_teamA_id_fkey")
+  Team_Match_teamB_idToTeam Team     @relation("Match_teamB_idToTeam", fields: [teamB_id], references: [flag], onDelete: NoAction, onUpdate: NoAction, map: "Matches_teamB_id_fkey")
+  Guesses                   Guess[]
 }
 
-model Teams {
-  id                              Int       @id @default(autoincrement())
-  name                            String    @unique
-  flag                            String    @unique
-  Matches_Matches_teamA_idToTeams Matches[] @relation("Matches_teamA_idToTeams")
-  Matches_Matches_teamB_idToTeams Matches[] @relation("Matches_teamB_idToTeams")
+model Team {
+  id                           Int     @id(map: "Teams_pkey") @default(autoincrement())
+  name                         String  @unique(map: "Teams_name_key")
+  flag                         String  @unique(map: "Teams_flag_key")
+  Matches_Match_teamA_idToTeam Match[] @relation("Match_teamA_idToTeam")
+  Matches_Match_teamB_idToTeam Match[] @relation("Match_teamB_idToTeam")
 }
 
-model Guesses {
-  id           Int      @id @default(autoincrement())
+model Guess {
+  id           Int      @id(map: "Guesses_pkey") @default(autoincrement())
   user_id      Int
   match_id     Int
   team_winner  String?
   team_a_score Int
   team_b_score Int
   time         DateTime @db.Timestamp(6)
-  Matches      Matches  @relation(fields: [match_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "match_guess")
-  Users        Users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_guesses")
+  points       Int?
+  Matches      Match    @relation(fields: [match_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "match_guess")
+  Users        User     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_guesses")
+
+  @@unique([user_id, match_id], map: "user_match_unique")
 }
 
-model Users {
-  id       Int       @id @default(autoincrement())
+model User {
+  id       Int     @id(map: "Users_pkey") @default(autoincrement())
   name     String?
-  username String?   @unique
+  username String? @unique(map: "Users_username_key")
   password String?
-  Guesses  Guesses[]
+  Guesses  Guess[]
 }

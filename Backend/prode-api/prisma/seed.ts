@@ -2,7 +2,7 @@ import { PrismaClient, Prisma } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const teamData: Prisma.TeamsCreateInput[]= [
+const teamData: Prisma.TeamCreateInput[]= [
     {
         name: "Argentina",
         flag: "🇦🇷"
@@ -133,397 +133,397 @@ const teamData: Prisma.TeamsCreateInput[]= [
     }
 ];
 
-const matches1Data: Prisma.MatchesCreateInput[] = 
+const matches1Data: Prisma.MatchCreateInput[] = 
 [
     {
         time: "2022-11-21T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇸🇳" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇳🇱" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇸🇳" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇳🇱" } },
         stage: "Matchday 1",
         group: "A"
     },
     {
         time: "2022-11-21T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇶🇦" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇪🇨" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇶🇦" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇪🇨" } },
         stage: "Matchday 1",
         group: "A"
     },
     {
         time: "2022-11-21T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇮🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇮🇷" } },
         stage: "Matchday 1",
         group: "B",
     },
     {
         time: "2022-11-21T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇺🇸" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇺🇸" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
         stage: "Matchday 1",
         group: "B",
     },
     {
         time: "2022-11-22T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇦🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇸🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇦🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇸🇦" } },
         stage: "Matchday 1",
         group: "C",
     },
     {
         time: "2022-11-22T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇲🇽" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇵🇱" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇲🇽" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇵🇱" } },
         stage: "Matchday 1",
         group: "C",
     },
     {
         time: "2022-11-22T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇩🇰" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇹🇳" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇩🇰" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇹🇳" } },
         stage: "Matchday 1",
         group: "D",
     },
     {
         time: "2022-11-22T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇫🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇦🇺" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇫🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇦🇺" } },
         stage: "Matchday 1",
         group: "D",
     },
     {
         time: "2022-11-23T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇲🇦" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇭🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇲🇦" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇭🇷" } },
         stage: "Matchday 1",
         group: "F",
     },
     {
         time: "2022-11-23T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇧🇪" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇧🇪" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇦" } },
         stage: "Matchday 1",
         group: "F",
     },
     {
         time: "2022-11-23T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇩🇪" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇯🇵" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇩🇪" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇯🇵" } },
         stage: "Matchday 1",
         group: "E",
     },
     {
         time: "2022-11-23T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇪🇸" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇪🇸" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇷" } },
         stage: "Matchday 1",
         group: "E",
     },
     {
         time: "2022-11-24T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇨🇭" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇲" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇨🇭" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇲" } },
         stage: "Matchday 1",
         group: "G",
     },
     {
         time: "2022-11-24T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇵🇹" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇬🇭" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇵🇹" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇬🇭" } },
         stage: "Matchday 1",
         group: "H",
     },
     {
         time: "2022-11-24T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇺🇾" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇰🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇺🇾" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇰🇷" } },
         stage: "Matchday 1",
         group: "H",
     },
     {
         time: "2022-11-24T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇧🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇷🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇧🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇷🇸" } },
         stage: "Matchday 1",
         group: "G",
     },
 ];
 
-const matches2Data: Prisma.MatchesCreateInput[] = 
+const matches2Data: Prisma.MatchCreateInput[] = 
 [
     {
         time: "2022-11-25T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇮🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇮🇷" } },
         stage: "Matchday 2",
         group: "B"
     },
     {
         time: "2022-11-25T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇳🇱" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇪🇨" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇳🇱" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇪🇨" } },
         stage: "Matchday 2",
         group: "A"
     },
     {
         time: "2022-11-25T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇶🇦" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇸🇳" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇶🇦" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇸🇳" } },
         stage: "Matchday 2",
         group: "A",
     },
     {
         time: "2022-11-25T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇺🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇺🇸" } },
         stage: "Matchday 2",
         group: "B",
     },
     {
         time: "2022-11-26T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇹🇳" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇦🇺" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇹🇳" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇦🇺" } },
         stage: "Matchday 2",
         group: "D",
     },
     {
         time: "2022-11-26T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇫🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇩🇰" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇫🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇩🇰" } },
         stage: "Matchday 2",
         group: "D",
     },
     {
         time: "2022-11-26T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇵🇱" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇸🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇵🇱" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇸🇦" } },
         stage: "Matchday 2",
         group: "C",
     },
     {
         time: "2022-11-26T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇦🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇲🇽" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇦🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇲🇽" } },
         stage: "Matchday 2",
         group: "C",
     },
     {
         time: "2022-11-27T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇯🇵" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇯🇵" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇷" } },
         stage: "Matchday 2",
         group: "E",
     },
     {
         time: "2022-11-27T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇩🇪" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇪🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇩🇪" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇪🇸" } },
         stage: "Matchday 2",
         group: "E",
     },
     {
         time: "2022-11-27T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇧🇪" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇲🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇧🇪" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇲🇦" } },
         stage: "Matchday 2",
         group: "F",
     },
     {
         time: "2022-11-27T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇭🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇭🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇦" } },
         stage: "Matchday 2",
         group: "F",
     },
     {
         time: "2022-11-28T07:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇨🇲" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇷🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇨🇲" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇷🇸" } },
         stage: "Matchday 2",
         group: "G",
     },
     {
         time: "2022-11-28T13:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇧🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇭" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇧🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇭" } },
         stage: "Matchday 2",
         group: "G",
     },
     {
         time: "2022-11-28T10:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇰🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇬🇭" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇰🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇬🇭" } },
         stage: "Matchday 2",
         group: "H",
     },
     {
         time: "2022-11-28T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇵🇹" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇺🇾" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇵🇹" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇺🇾" } },
         stage: "Matchday 2",
         group: "H",
     },
 ];
 
-const matches3Data: Prisma.MatchesCreateInput[] = 
+const matches3Data: Prisma.MatchCreateInput[] = 
 [
     {
         time: "2022-11-29T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇪🇨" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇸🇳" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇪🇨" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇸🇳" } },
         stage: "Matchday 3",
         group: "A"
     },
     {
         time: "2022-11-29T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇳🇱" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇶🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇳🇱" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇶🇦" } },
         stage: "Matchday 3",
         group: "A"
     },
     {
         time: "2022-11-29T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇮🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇺🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇮🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇺🇸" } },
         stage: "Matchday 3",
         group: "B",
     },
     {
         time: "2022-11-29T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" } },
         stage: "Matchday 3",
         group: "B",
     },
     {
         time: "2022-11-30T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇹🇳" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇫🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇹🇳" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇫🇷" } },
         stage: "Matchday 3",
         group: "D",
     },
     {
         time: "2022-11-30T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇦🇺" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇩🇰" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇦🇺" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇩🇰" } },
         stage: "Matchday 3",
         group: "D",
     },
     {
         time: "2022-11-30T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇵🇱" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇦🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇵🇱" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇦🇷" } },
         stage: "Matchday 3",
         group: "C",
     },
     {
         time: "2022-11-30T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇸🇦" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇲🇽" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇸🇦" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇲🇽" } },
         stage: "Matchday 3",
         group: "C",
     },
     {
         time: "2022-12-01T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇭🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇧🇪" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇭🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇧🇪" } },
         stage: "Matchday 3",
         group: "F",
     },
     {
         time: "2022-12-01T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇨🇦" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇲🇦" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇨🇦" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇲🇦" } },
         stage: "Matchday 3",
         group: "F",
     },
     {
         time: "2022-12-01T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇯🇵" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇪🇸" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇯🇵" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇪🇸" } },
         stage: "Matchday 3",
         group: "E",
     },
     {
         time: "2022-12-01T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇨🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇩🇪" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇨🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇩🇪" } },
         stage: "Matchday 3",
         group: "E",
     },
     {
         time: "2022-12-02T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇰🇷" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇵🇹" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇰🇷" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇵🇹" } },
         stage: "Matchday 3",
         group: "H",
     },
     {
         time: "2022-12-02T12:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇬🇭" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇺🇾" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇬🇭" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇺🇾" } },
         stage: "Matchday 3",
         group: "H",
     },
     {
         time: "2022-12-02T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇷🇸" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇨🇭" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇷🇸" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇨🇭" } },
         stage: "Matchday 3",
         group: "G",
     },
     {
         time: "2022-12-02T16:00:00.000Z",
         playoffs: false,
-        Teams_Matches_teamA_idToTeams: { connect: { flag: "🇨🇲" } },
-        Teams_Matches_teamB_idToTeams: { connect: { flag: "🇧🇷" } },
+        Team_Match_teamA_idToTeam: { connect: { flag: "🇨🇲" } },
+        Team_Match_teamB_idToTeam: { connect: { flag: "🇧🇷" } },
         stage: "Matchday 3",
         group: "G",
     },
@@ -535,23 +535,23 @@ const matches3Data: Prisma.MatchesCreateInput[] =
 
 async function main() {
     console.log(`Start seeding... 🌱`);
-    if (await prisma.teams.count() > 0) {
+    if (await prisma.team.count() > 0) {
         console.log(`Teams already seeded.`)
     } else {
         for (const t of teamData) {
-            const team = await prisma.teams.create({
+            const team = await prisma.team.create({
                 data: t
             });
             console.log(`Created team ${team.flag} with id: ${team.id}`);
         }
     }
 
-    if (await prisma.matches.count() > 0) {
+    if (await prisma.match.count() > 0) {
         console.log(`Matches already seeded.`)
     } else {
         const matchData = [...matches1Data, ...matches2Data, ...matches3Data];
         for (const m of matchData) {
-            const match = await prisma.matches.create({
+            const match = await prisma.match.create({
                 data: m
             });
             console.log(`Created match ${match.teamA_id} vs ${match.teamB_id} with id: ${match.id}`);

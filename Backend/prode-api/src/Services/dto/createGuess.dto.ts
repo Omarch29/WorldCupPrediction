@@ -1,7 +1,7 @@
 export class createGuessDto{
-    user_Id: number;
-    match_Id: number;
+    user_id: number;
+    match_id: number;
     team_a_score: number;
     team_b_score: number;
-    team_winner: string | null
+    team_winner: 'A' | 'B' | 'X';
 }
