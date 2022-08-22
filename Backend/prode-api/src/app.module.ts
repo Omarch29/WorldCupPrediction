@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TeamController } from './Controllers/team.controller';
 import { PrismaService } from './Services/Prisma.service';
 import { TeamService } from './Services/team.service';
@@ -18,8 +16,7 @@ import { FriendGroupService } from './Services/friendGroup.service';
 @Module({
   imports: [],
   controllers: 
-    [AppController,
-    TeamController,
+    [TeamController,
     MatchController,
     AuthController,
     GuessController,
@@ -27,8 +24,7 @@ import { FriendGroupService } from './Services/friendGroup.service';
     FriendGroupController
   ],
   providers: 
-    [AppService,
-    TeamService, 
+    [TeamService, 
     PrismaService, 
     MatchService,
     AuthService,
