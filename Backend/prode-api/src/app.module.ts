@@ -10,6 +10,10 @@ import { AuthService } from './Services/auth.service';
 import { AuthController } from './Controllers/auth.controller';
 import { GuessController } from './Controllers/guess.controller';
 import { GuessService } from './Services/guess.service';
+import { UserController } from './Controllers/user.controller';
+import { FriendGroupController } from './Controllers/friendGroup.controller';
+import { UserService } from './Services/user.service';
+import { FriendGroupService } from './Services/friendGroup.service';
 
 @Module({
   imports: [],
@@ -18,13 +22,18 @@ import { GuessService } from './Services/guess.service';
     TeamController,
     MatchController,
     AuthController,
-    GuessController],
+    GuessController,
+    UserController,
+    FriendGroupController
+  ],
   providers: 
     [AppService,
     TeamService, 
     PrismaService, 
     MatchService,
     AuthService,
-    GuessService],
+    GuessService,
+    UserService,
+    FriendGroupService],
 })
 export class AppModule {}

@@ -21,10 +21,10 @@ export class GuessService {
             team_b_score: guess.team_b_score,
             team_winner: guess.team_winner,
             time: new Date(),
-            Matches: {
+            Match: {
                 connect: {id: guess.match_id}
             },
-            Users: {
+            User: {
                 connect: {id: guess.user_id}
             }
         };
@@ -57,10 +57,10 @@ export class GuessService {
                 user_id: userId,
             },
             include: {
-                Matches: true,
+                Match: true,
             }
         });
-        await this.setPoints(guess, guess.Matches[0]);
+        await this.setPoints(guess, guess.Match);
         return guess;
     }
 
@@ -70,12 +70,12 @@ export class GuessService {
                 user_id: userId,
             },
             include: {
-                Matches: true,
+                Match: true,
             }
         });
         
         guesses.forEach(async (g) => {
-            await this.setPoints(g, g.Matches);
+            await this.setPoints(g, g.Match);
         });
 
         return guesses;
@@ -97,12 +97,12 @@ export class GuessService {
             time: orderBy || 'asc',
             },
             include: {
-                Matches: true,
+                Match: true,
             }
         });
 
         guesses.forEach(async g => {
-            await this.setPoints(g, g.Matches);
+            await this.setPoints(g, g.Match);
         });
 
         return guesses;
@@ -127,6 +127,7 @@ export class GuessService {
             }
         });
     }
+
 
     private async setPoints(guess: Guess, match: Match) {
         if (guess.points !== null) return;
