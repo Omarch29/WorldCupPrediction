@@ -18,5 +18,5 @@
 ### BackOffice 🗄
 
 - [SvelteKit](https://kit.svelte.dev/docs/introduction)
-- [DaisyUI] (https://daisyui.com/docs/install/)
+- [DaisyUI](https://daisyui.com/docs/install/)
 - [Vite](https://vitejs.dev/guide/) build tool
